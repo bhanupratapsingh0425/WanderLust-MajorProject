@@ -1,0 +1,24 @@
+<% layout("/layouts/boilerplate") %>
+
+<h1>All Listings</h1>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+    <% for(let listing of allListings){ %>
+        <div class="col mb-4">
+            <div class="card h-100">
+                <a href="/listings/<%= listing._id %>" class="listing-link">
+                    <img src="<%= listing.image %>" class="card-img-top" alt="listing_image" style="height: 20rem; object-fit: cover;">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><%= listing.title %><br></b>
+                            &#8377;<%= listing.price.toLocaleString("en-IN") %>/night
+                        </p>
+                    </div>
+                </a>
+                <div class="card-img-overlay text-white">
+                    Let's Explore This
+                </div>
+            </div>
+        </div>
+    <% } %>
+</div>
